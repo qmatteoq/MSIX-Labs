@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace MyEmployees.PluginInterface
+namespace MyEmployeesFinance.PluginInterface
 {
     public interface IPlugin
     {

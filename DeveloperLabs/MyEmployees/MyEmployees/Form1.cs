@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
-using MyEmployees.Entities;
-using MyEmployees.PluginInterface;
+using MyEmployeesFinance.Entities;
+using MyEmployeesFinance.PluginInterface;
 using Newtonsoft.Json;
 using NLog;
 using System;
@@ -47,7 +47,7 @@ namespace ExportDataLibrary
 
         private void CheckKioskMode()
         {
-            var regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Contoso\\MyEmployees");
+            var regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Contoso\\MyEmployeesFinance");
             if (regKey != null)
             {
                 var kioskMode = regKey.GetValue("KioskMode");
@@ -65,7 +65,7 @@ namespace ExportDataLibrary
 
         private void LoadConfig()
         {
-            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles)}\\Contoso\\MyEmployees\\config.json";
+            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles)}\\Contoso\\MyEmployeesFinance\\config.json";
             if (File.Exists(path))
             {
                 logger.Log(LogLevel.Info, "Custom config file is available");
@@ -83,7 +83,7 @@ namespace ExportDataLibrary
             }
             try
             {
-                string dllPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles)}\\Contoso\\MyEmployees\\Plugins\\ExportDataLibrary.dll";
+                string dllPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles)}\\Contoso\\MyEmployeesFinance\\Plugins\\ExportDataLibrary.dll";
                 plugin = LoadAssembly(dllPath);
                 logger.Log(LogLevel.Info, "Export data plugin available");
             }

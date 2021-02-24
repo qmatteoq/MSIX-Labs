@@ -1,4 +1,4 @@
-﻿namespace MyEmployees.Entities
+﻿namespace MyEmployeesFinance.Entities
 {
     public class Employee
     {
