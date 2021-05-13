@@ -11,7 +11,7 @@ pool:
 
 variables:
   solution: 'DeveloperLabs\MyEmployees\MyEmployees.Package\MyEmployees.Package.wapproj'
-  buildPlatform: 'x86'
+  buildPlatform: 'x64'
   buildConfiguration: 'Release'
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
 
