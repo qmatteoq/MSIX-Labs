@@ -6,6 +6,7 @@
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Platforms>AnyCPU;x64</Platforms>
+    <AssetTargetFallback>uap10.0.17134</AssetTargetFallback>
     <ApplicationIcon>contoso_5Ob_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
