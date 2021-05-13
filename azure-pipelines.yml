@@ -11,7 +11,7 @@ pool:
 
 variables:
   solution: '**/*.sln'
-  buildPlatform: 'x86|x64|ARM'
+  buildPlatform: 'x86'
   buildConfiguration: 'Release'
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
 
@@ -21,4 +21,18 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+
+- task: MsixPackaging@1
+  inputs:
+    outputPath: '$(appxPackageDir)'
+    solution: '$(solution)'
+    clean: false
+    generateBundle: false
+    buildConfiguration: '$(buildConfiguration)'
+    buildPlatform: '$(buildPlatform)'
+    updateAppVersion: false
+    appPackageDistributionMode: 'SideloadOnly'
+    msbuildLocationMethod: 'version'
+    msbuildVersion: 'latest'
+    msbuildArchitecture: 'x86'
 
