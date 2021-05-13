@@ -11,7 +11,7 @@ pool:
 
 variables:
   solution: '**/*.sln'
-  buildPlatform: 'x86'
+  buildPlatform: 'x64'
   buildConfiguration: 'Release'
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
 
@@ -34,5 +34,5 @@ steps:
     appPackageDistributionMode: 'SideloadOnly'
     msbuildLocationMethod: 'version'
     msbuildVersion: 'latest'
-    msbuildArchitecture: 'x86'
+    msbuildArchitecture: 'x64'
 

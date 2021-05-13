@@ -162,7 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyEmployeesBackgroundTask\MyEmployeesBackgroundTask.csproj" />
-    <ProjectReference Include="..\MyEmployees\MyEmployees.csproj" />
+    <ProjectReference Include="..\MyEmployees\MyEmployees.csproj">
+      <SkipGetTargetFrameworkProperties>True</SkipGetTargetFrameworkProperties>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>
