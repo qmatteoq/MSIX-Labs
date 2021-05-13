@@ -36,3 +36,9 @@ steps:
     msbuildVersion: 'latest'
     msbuildArchitecture: 'x64'
 
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(appxPackageDir)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
