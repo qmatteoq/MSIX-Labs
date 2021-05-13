@@ -11,7 +11,7 @@ pool:
 
 variables:
   solution: 'DeveloperLabs\MyEmployees\MyEmployees.Package\MyEmployees.Package.wapproj'
-  buildPlatform: 'x64'
+  buildPlatform: 'x86'
   buildConfiguration: 'Release'
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
 
@@ -22,19 +22,13 @@ steps:
   inputs:
     restoreSolution: '**/*.sln'
 
-- task: MsixPackaging@1
+- task: VSBuild@1
+  displayName: 'Build'
   inputs:
-    outputPath: '$(appxPackageDir)'
+    platform: '$(buildPlatform)'
     solution: '$(solution)'
-    clean: false
-    generateBundle: false
-    buildConfiguration: '$(buildConfiguration)'
-    buildPlatform: '$(buildPlatform)'
-    updateAppVersion: false
-    appPackageDistributionMode: 'SideloadOnly'
-    msbuildLocationMethod: 'version'
-    msbuildVersion: 'latest'
-    msbuildArchitecture: 'x64'
+    configuration: '$(buildConfiguration)'
+    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Never /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false'
 
 
 - task: PublishBuildArtifacts@1
