@@ -22,14 +22,6 @@ steps:
   inputs:
     restoreSolution: '**/*.sln'
 
-# - task: VSBuild@1
-#   displayName: 'Build'
-#   inputs:
-#     platform: '$(buildPlatform)'
-#     solution: '$(solution)'
-#     configuration: '$(buildConfiguration)'
-#     msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Never /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false'
-
 - task: MsixPackaging@1
   inputs:
     outputPath: '$(appxPackageDir)\MyEmployees.msix'
@@ -44,6 +36,11 @@ steps:
     msbuildVersion: 'latest'
     msbuildArchitecture: 'x86'
 
+- task: MsixSigning@1
+  inputs:
+    package: '$(Build.ArtifactStagingDirectory)\**\*.msix*'
+    certificate: 'Contoso.pfx'
+    passwordVariable: '$(PfxPass)'
 
 - task: PublishBuildArtifacts@1
   inputs:
