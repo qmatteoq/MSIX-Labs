@@ -22,13 +22,27 @@ steps:
   inputs:
     restoreSolution: '**/*.sln'
 
-- task: VSBuild@1
-  displayName: 'Build'
+# - task: VSBuild@1
+#   displayName: 'Build'
+#   inputs:
+#     platform: '$(buildPlatform)'
+#     solution: '$(solution)'
+#     configuration: '$(buildConfiguration)'
+#     msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Never /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false'
+
+- task: MsixPackaging@1
   inputs:
-    platform: '$(buildPlatform)'
+    outputPath: '$(appPackageDir)/MyEmployees.msix'
     solution: '$(solution)'
-    configuration: '$(buildConfiguration)'
-    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Never /p:UapAppxPackageBuildMode=SideloadOnly /p:AppxPackageSigningEnabled=false'
+    clean: false
+    generateBundle: false
+    buildConfiguration: '$(buildConfiguration)'
+    buildPlatform: '$(buildPlatform)'
+    updateAppVersion: false
+    appPackageDistributionMode: 'SideloadOnly'
+    msbuildLocationMethod: 'version'
+    msbuildVersion: 'latest'
+    msbuildArchitecture: 'x86'
 
 
 - task: PublishBuildArtifacts@1
