@@ -32,7 +32,7 @@ steps:
 
 - task: MsixPackaging@1
   inputs:
-    outputPath: '$(appPackageDir)\MyEmployees.msix'
+    outputPath: '$(appxPackageDir)\MyEmployees.msix'
     solution: '$(solution)'
     clean: false
     generateBundle: false
