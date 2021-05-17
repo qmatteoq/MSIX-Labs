@@ -30,7 +30,9 @@ steps:
     generateBundle: false
     buildConfiguration: '$(buildConfiguration)'
     buildPlatform: '$(buildPlatform)'
-    updateAppVersion: false
+    updateAppVersion: true
+    manifestFile: 'DeveloperLabs\MyEmployees\MyEmployees.Package\Package.appxmanifest'
+    appVersion: '$(Build.BuildNumber).0'
     appPackageDistributionMode: 'SideloadOnly'
     msbuildLocationMethod: 'version'
     msbuildVersion: 'latest'
@@ -41,6 +43,8 @@ steps:
     package: '$(Build.ArtifactStagingDirectory)\**\*.msix*'
     certificate: 'Contoso.pfx'
     passwordVariable: 'PfxPass'
+
+
 
 - task: PublishBuildArtifacts@1
   inputs:

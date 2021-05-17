@@ -763,6 +763,28 @@ public static async void ExportData(IList data)
 }
 ```
 
+## Exercise 12.1: Create a CI/CD pipeline on Azure DevOps
+
+### What does this feature do?
+
+Continuous Integration / Continuous Deployment (CI/CD) is the one the most important steps to enable agile development in a software project. A CI/CD pipeline is a series of automated task, that are executed one after the other. Thanks to a pipeline, you're able to automate many of the processes that, otherwise, must be done manually every time you make some changes to your code, like:
+
+- Building the project.
+- Running tests to make sure you didn't introduce any regression.
+- Deploy to new version of the application to your testers.
+
+Thanks to a CI/CD pipeline, you are able to release more often and with more confidence. It's enough to push new code to your repository to trigger an execution of the pipeline, which will build your Windows application, package it as MSIX, sign it with a certificate and deploy it to your customers.
+
+In this first exercise we're going to focus on create a simple pipeline, which will build the MyEmployees application and generate a new MSIX package every time you're going to push new code to the repository.
+
+### What is the magic sauce here?
+Thanks to the Windows Application Packaging Project, generating a MSIX package for our application is simple as compiling the project with Visual Studio. As such, you don't need any special configuration in your pipeline. You just need a build machine with Windows and Visual Studio and a task which can use MSBuild to run the compilation.
+Azure Pipelines (which is part of Azure DevOps) already includes all the features you need to automate the generation of your MSIX package:
+
+- It provides Windows-based hosted agents, with already installed all the requirements you need (Visual Studio, all the supported .NET versions, Windows 10 SDK, etc.)
+- It offers a task called **VSBuild**, which uses MSBuild to compile your Visual Studio solution.
+
+
 ### How do I run this sample?
 
 1. Checkout branch 'dev-labs-exercise-11-winrtcomponent' from your GitHub Desktop Client.

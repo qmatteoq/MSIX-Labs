@@ -28,6 +28,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{E114AEF2-C55F-4B5F-968A-092004FBBDF1}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\azure-pipelines.yml = ..\..\azure-pipelines.yml
+		..\..\version.json = ..\..\version.json
 	EndProjectSection
 EndProject
 Global
