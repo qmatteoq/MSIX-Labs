@@ -3,6 +3,7 @@
   "version": "1.0",
   "publicReleaseRefSpec": [
     "^refs/heads/master$",
+    "^refs/heads/dev-labs-exercise12-cicd$",
     "^refs/heads/v\\d+(?:\\.\\d+)?$"
   ],
   "cloudBuild": {
