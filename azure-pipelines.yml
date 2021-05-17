@@ -32,7 +32,7 @@ steps:
     buildPlatform: '$(buildPlatform)'
     updateAppVersion: true
     manifestFile: 'DeveloperLabs\MyEmployees\MyEmployees.Package\Package.appxmanifest'
-    appVersion: '$(Build.BuildNumber).0'
+    appVersion: '$(GitBuildVersionSimple).0'
     appPackageDistributionMode: 'SideloadOnly'
     msbuildLocationMethod: 'version'
     msbuildVersion: 'latest'
