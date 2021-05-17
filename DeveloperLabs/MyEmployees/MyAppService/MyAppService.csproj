@@ -122,7 +122,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AnnualCompCalculator.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">

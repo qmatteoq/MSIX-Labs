@@ -122,7 +122,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BackgroundUpdateTask.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">

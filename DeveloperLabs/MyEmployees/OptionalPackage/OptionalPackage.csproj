@@ -125,7 +125,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\StoreLogo.png" />
