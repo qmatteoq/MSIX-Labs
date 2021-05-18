@@ -24,7 +24,7 @@ steps:
     
 - script: | 
           dotnet tool install --tool-path . nbgv
-          .\nbgv cloud
+          .\nbgv cloud --common-vars
   displayName: Set the cloud variables
 
 - task: MsixPackaging@1
