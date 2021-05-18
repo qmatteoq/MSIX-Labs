@@ -30,7 +30,7 @@ steps:
     generateBundle: false
     buildConfiguration: '$(buildConfiguration)'
     buildPlatform: '$(buildPlatform)'
-    updateAppVersion: true
+    updateAppVersion: false
     manifestFile: 'DeveloperLabs\MyEmployees\MyEmployees.Package\Package.appxmanifest'
     appVersion: '$(GitBuildVersionSimple).0'
     appPackageDistributionMode: 'SideloadOnly'
@@ -38,13 +38,15 @@ steps:
     msbuildVersion: 'latest'
     msbuildArchitecture: 'x86'
 
+- task: CmdLine@2
+  inputs:
+    script: 'echo $(GitBuildVersionSimple)'
+
 - task: MsixSigning@1
   inputs:
     package: '$(Build.ArtifactStagingDirectory)\**\*.msix*'
     certificate: 'Contoso.pfx'
     passwordVariable: 'PfxPass'
-
-
 
 - task: PublishBuildArtifacts@1
   inputs:
