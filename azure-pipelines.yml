@@ -38,9 +38,10 @@ steps:
     msbuildVersion: 'latest'
     msbuildArchitecture: 'x86'
 
-- task: CmdLine@2
-  inputs:
-    script: 'echo $(GitBuildVersionSimple)'
+- script: | 
+          dotnet tool install --tool-path . nbgv
+          .\nbgv cloud
+  displayName: Set the cloud variables
 
 - task: MsixSigning@1
   inputs:
