@@ -21,6 +21,11 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '**/*.sln'
+    
+- script: | 
+          dotnet tool install --tool-path . nbgv
+          .\nbgv cloud
+  displayName: Set the cloud variables
 
 - task: MsixPackaging@1
   inputs:
@@ -30,7 +35,7 @@ steps:
     generateBundle: false
     buildConfiguration: '$(buildConfiguration)'
     buildPlatform: '$(buildPlatform)'
-    updateAppVersion: false
+    updateAppVersion: true
     manifestFile: 'DeveloperLabs\MyEmployees\MyEmployees.Package\Package.appxmanifest'
     appVersion: '$(GitBuildVersionSimple).0'
     appPackageDistributionMode: 'SideloadOnly'
@@ -38,10 +43,7 @@ steps:
     msbuildVersion: 'latest'
     msbuildArchitecture: 'x86'
 
-- script: | 
-          dotnet tool install --tool-path . nbgv
-          .\nbgv cloud
-  displayName: Set the cloud variables
+
 
 - task: MsixSigning@1
   inputs:
